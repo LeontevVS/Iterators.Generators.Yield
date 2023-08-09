@@ -1,8 +1,10 @@
 import types
 from unpack.unpack import flat_generator, FlatIterator
 from unpack.nested_unpack import nested_generator, NestedIterator
+from logger import logger_with_path
 
 
+@logger_with_path('tests_log.log')
 def test_1():
 
     list_of_lists_1 = [
@@ -21,6 +23,7 @@ def test_1():
     assert list(FlatIterator(list_of_lists_1)) == ['a', 'b', 'c', 'd', 'e', 'f', 'h', False, 1, 2, None]
 
 
+@logger_with_path('tests_log.log')
 def test_2():
 
     list_of_lists_1 = [
@@ -41,6 +44,7 @@ def test_2():
     assert isinstance(flat_generator(list_of_lists_1), types.GeneratorType)
 
 
+@logger_with_path('tests_log.log')
 def test_3():
 
     list_of_lists_2 = [
@@ -59,6 +63,7 @@ def test_3():
     assert list(NestedIterator(list_of_lists_2)) == ['a', 'b', 'c', 'd', 'e', 'f', 'h', False, 1, 2, None, '!']
 
 
+@logger_with_path('tests_log.log')
 def test_4():
 
     list_of_lists_2 = [

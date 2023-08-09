@@ -1,3 +1,6 @@
+from logger import logger
+
+
 class NestedIterator:
 
     def __init__(self, list_of_list):
@@ -9,6 +12,7 @@ class NestedIterator:
         self.counter = -1
         return self
     
+    @logger
     def __next__(self):
         self.counter += 1
         if self.counter >= len(self.flat_list):
@@ -25,7 +29,7 @@ class NestedIterator:
         else:
             self.flat_list.append(input_data)
 
-
+@logger
 def nested_generator(list_of_list):
     for elem in list_of_list:
         if isinstance(elem, list):
